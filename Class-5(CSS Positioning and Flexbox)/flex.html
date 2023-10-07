@@ -8,12 +8,19 @@
     <style>
 
         .container{
-           height: 2000px;
+           height: 1000px;
            background-color: peachpuff;
            border: 3px solid black;
            display: flex;
-           flex-direction: row;
-           justify-content:space-evenly;
+           flex-direction:row;
+           gap: 50px;
+            /* justify-content:space-around; */
+           /* align-items: start; */ 
+           /* flex-wrap: wrap; */
+        
+           
+
+
 
        }
 
@@ -28,6 +35,8 @@
 
         .box1{
             background-color: aqua;
+            /* flex-shrink: 1; */
+
         }
 
         .box2{
@@ -37,11 +46,13 @@
 
         .box3{
             background-color: red;
+            /* flex-grow: 1; */
         }
 
 
         .box4{
             background-color: coral;
+
         }
     </style>
 </head>
@@ -49,10 +60,10 @@
 
 
     <div class="container">
-      <div class="box box1"></div>
-      <div class="box box2"></div>
-      <div class="box box3"></div>
-      <div class="box box4"></div>
+      <div class="box box1">Box1</div>
+      <div class="box box2">Box2</div>
+      <div class="box box3">Box3</div>
+      <div class="box box4">Box4</div>
     </div>
     
 </body>
