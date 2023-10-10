@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        body{
+            font-size: 25px;
+            height: 100vh;
+
+            text-align: center;
+            color: white;
+
+            display: grid;
+
+            grid-template-columns:1fr 4fr 1fr 1fr;
+
+            grid-template-rows:  80px 1fr 70px;
+
+
+            grid-template-areas:
+            'top top top top'
+            'nav content aside side'
+            'nav footer footer footer'
+
+
+           
+
+
+        }
+
+
+        header , main , nav , aside, footer , div{
+            background-color: tomato;
+            padding: 20px;
+            border: skyblue 2px solid;
+        }
+
+        header{
+            grid-area: top;
+        }
+
+        nav{
+            grid-area: nav;
+        }
+
+        main{
+            grid-area: content;
+        }
+
+        aside{
+            grid-area: aside;
+        }
+
+        div{
+            grid-area: side;
+        }
+
+        footer{
+            grid-area: footer;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    
+
+
+    <header>Header</header>
+    <main>Content</main>
+    <nav>Navigation</nav>
+    <aside>Sidebar 1</aside>
+    <div>Sidebar 2</div>
+    <footer>Footer</footer>
+</body>
+</html>
