@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+
+        .container{
+            background-color: tomato;
+            border : 6px solid black;
+            margin: 2px;
+            padding: 2px;
+            display: flex;
+        }
+
+        .box{
+            height: 200px;
+            width: 200px;
+            border: 2px solid red;
+            margin: 2px;
+            padding: 2px;
+        }
+
+        #box1{
+            background-color: blue;
+        }
+
+        #box2{
+            background-color: aqua;
+        }
+
+        #box3{
+            background-color: steelblue;
+        }
+
+        #box4{
+            background-color: green;
+        }
+
+
+        /* // when I reach 640px I want to chnage flex direction to column */
+
+
+        @media (max-width: 640px){
+            .container{
+              flex-direction: column;
+            }
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <div class="container">
+        <div class="box" id="box1">Box 1</div>
+        <div class="box" id="box2">Box 2</div>
+        <div class="box" id="box3">Box 3</div>
+        <div class="box" id="box4">Box 4</div>
+    </div>
+    
+</body>
+</html>
