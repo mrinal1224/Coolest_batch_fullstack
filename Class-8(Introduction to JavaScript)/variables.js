@@ -1,6 +1,9 @@
+
+
 // // Declare a variable in JavaScript
 
 // var a = 2
+
 // // Number
 
 // console.log(a)
@@ -43,6 +46,12 @@ console.log(name2)
 const a = 40
 
 console.log(a)
+
+
+
+
+y=56
+console.log(y)
 
 
 
