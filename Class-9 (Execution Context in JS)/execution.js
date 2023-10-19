@@ -8,5 +8,25 @@ function addition(num1 , num2){
 }
 
 
-let ans = addition(a , b)
+var ans = addition(a , b)
 console.log(ans)
+
+
+
+// Square a number
+
+var n=2;
+
+
+function square(n){
+var ans=n*n;
+return ans;
+} 
+
+var square1 = square(n);
+var square2 = square(4); 
+
+console.log(square1)
+console.log(square2)
+
+
