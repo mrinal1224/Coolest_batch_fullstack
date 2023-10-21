@@ -8,7 +8,7 @@ function calculate(arr, cb) {
     }
   
     return result;
-  }
+  } // this is a higher order function
 
 function circleArea(radius) {
   return 3.14 * radius * radius;
