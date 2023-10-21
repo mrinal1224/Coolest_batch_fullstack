@@ -41,3 +41,7 @@ console.log(diameters);
 
 let circumferneces = calculatedCicumference(radiusArr);
 console.log(circumferneces);
+
+
+
+
