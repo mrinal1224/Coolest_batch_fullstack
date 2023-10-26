@@ -14,10 +14,11 @@
       <li>4</li>
       <li>5</li>
       <li>6</li>
-  
-      <li>8</li>
+
+      <li>8</li> 
       <li>9</li>
       <li>10</li>
+      
     </ul>
 
     <script>
@@ -28,16 +29,18 @@
       console.log(ourList)
 
       let allItems = ourList.querySelectorAll('li')
-      console.log(allItems)
+      console.log(allItems) // nodeList
 
 
       let indexThatHas8 = allItems[6]
+
+      console.log(indexThatHas8)
 
       let elementSeven = document.createElement('li')
       elementSeven.innerHTML = '7'
 
 
-     ourList.insertBefore(elementSeven , indexThatHas8 )
+      ourList.insertBefore(elementSeven , indexThatHas8 )
 
 
 
