@@ -8,13 +8,13 @@
   </head>
   <body>
     <ul>
-      <li>1</li>
-      <li>2</li>
+      <li>1</li> 
+      <li>2</li> 
       <li>3</li>
       <li>4</li>
       <li>5</li>
       <li>6</li>
-       
+  
       <li>8</li>
       <li>9</li>
       <li>10</li>
@@ -22,6 +22,27 @@
 
     <script>
       // Fix the list by inserting the missing element using querySelectorAll and insertBefore
+
+
+      let ourList = document.querySelector('ul')
+      console.log(ourList)
+
+      let allItems = ourList.querySelectorAll('li')
+      console.log(allItems)
+
+
+      let indexThatHas8 = allItems[6]
+
+      let elementSeven = document.createElement('li')
+      elementSeven.innerHTML = '7'
+
+
+     ourList.insertBefore(elementSeven , indexThatHas8 )
+
+
+
+
+
 
 
 

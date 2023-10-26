@@ -7,42 +7,49 @@
     <title>Document</title>
   </head>
   <body>
+    
     <button id="btn-1">Say Hello</button>
+
+
+
+    <script>
+        //Q1 on Clicking the Button append hello to the page
+        //The Document method querySelector() returns the first Element within
+        //the document that matches the specified selector,
+        //or group of selectors. If no matches are found, null is returned.
+    
+        // identify something in DOM
+    
+      //   let btn1 = document.getElementById("btn-1");
+      //   let btn2 = document.querySelector("#btn-2");
+      // //   let btn3 = document.getElementsByClassName("btn-3");
+    
+      //   //querySelector
+    
+      //   console.log('Getting Selected by getElementbyID' , btn1);
+      //   console.log('Getting Selected by querySelector' ,btn2);
+    
+    
+    
+          let btn = document.querySelector('#btn-1')
+           //dblclick - double click , click - single click
+          btn.addEventListener('click' , function(){
+               let hElem = document.createElement('h1')
+    
+               hElem.innerText = 'Hello'
+    
+               let body = document.querySelector('body')
+    
+               body.appendChild(hElem)
+          })
+           
+    
+      </script>
 
 </body>
 
 
-  <script>
-    //Q1 on Clicking the Button append hello to the page
-    //The Document method querySelector() returns the first Element within
-    //the document that matches the specified selector,
-    //or group of selectors. If no matches are found, null is returned.
-
-    // identify something in DOM
-
-  //   let btn1 = document.getElementById("btn-1");
-  //   let btn2 = document.querySelector("#btn-2");
-  // //   let btn3 = document.getElementsByClassName("btn-3");
-
-  //   //querySelector
-
-  //   console.log('Getting Selected by getElementbyID' , btn1);
-  //   console.log('Getting Selected by querySelector' ,btn2);
 
 
 
-      let btn = document.querySelector('#btn-1')
-       //dblclick - double click , click - single click
-      btn.addEventListener('click' , function(){
-           let hElem = document.createElement('h1')
-
-           hElem.innerText = 'Hello'
-
-           let body = document.querySelector('body')
-
-           body.appendChild(hElem)
-      })
-       
-
-  </script>
 </html>
