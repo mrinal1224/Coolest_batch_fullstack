@@ -29,6 +29,28 @@
     <script>
       // Q- Make remove all button work  and make individual delete btn work 
       //   Solution:
+
+
+      // 1. removeAll btn should delete all tasks
+      let ul = document.querySelector('ul')
+      let AllListItems = ul.querySelectorAll('li')
+
+
+
+
+      let removeButton = document.querySelector('#removeAll')
+      console.log(removeButton)
+
+      removeButton.addEventListener('click' , function(){
+        console.log('Button clicked')
+          AllListItems = ul.querySelectorAll('li')
+
+          console.log(AllListItems)
+
+           for(let i=0 ; i<AllListItems.length ; i++){
+            ul.removeChild(AllListItems[i])
+           }
+      })
       
 
 
