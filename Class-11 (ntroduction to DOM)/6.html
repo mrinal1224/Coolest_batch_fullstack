@@ -110,6 +110,45 @@
     </div>
     <script>
       // Q Make the filter work
+      
+
+      let dropdown = document.querySelector('select')
+
+
+      dropdown.addEventListener('change' , function(){
+        let filterValue = dropdown.value // action , comedy , romance , none
+
+        console.log(filterValue) 
+     
+
+
+      let allTickets = document.querySelectorAll('.price')
+
+      if(filterValue == 'none'){
+          for(let i=0 ; i<allTickets.length ; i++){
+            allTickets[i].parentElement.style.display = 'block'
+          }
+      }
+
+      else{
+         for(let i=0 ; i<allTickets.length ; i++){
+          if(allTickets[i].getAttribute('data-category')!= filterValue){
+            allTickets[i].parentElement.style.display = 'none'
+          }
+          else{
+            allTickets[i].parentElement.style.display = 'block'
+          }
+         }
+      }
+    })
+
+
+
+
+
+
+
+
 
      
 
