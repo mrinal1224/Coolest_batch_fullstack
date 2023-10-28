@@ -33,13 +33,18 @@
 
       // 1. removeAll btn should delete all tasks
       let ourList = document.querySelector('ul')
-      let AllListItems = ul.querySelectorAll('li')
+      let AllListItems = ourList.querySelectorAll('li')
 
-
-
-
+      let AllDeleteButtons = document.querySelectorAll('.delete_button')
       let removeButton = document.querySelector('#removeAll')
-      console.log(removeButton)
+      // console.log(removeButton)
+
+     // Removing specific Tasks
+      for(let i=0 ; i<AllDeleteButtons.length ; i++){
+        AllDeleteButtons[i].addEventListener('click' , function(e){
+          e.currentTarget.parentElement.remove()
+        })
+      }
 
       removeButton.addEventListener('click' , function(){
         console.log('Button clicked')
@@ -47,13 +52,15 @@
 
           console.log(AllListItems)
 
-        //    for(let i=0 ; i<AllListItems.length ; i++){
-        //     ourList.removeChild(AllListItems[i])
-        //    }
+           for(let i=0 ; i<AllListItems.length ; i++){
+            ourList.removeChild(AllListItems[i])
+           }
 
-        //ul.remove()
+        // ourList.remove()
       })
       
+
+
 
 
 
