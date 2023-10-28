@@ -32,7 +32,7 @@
 
 
       // 1. removeAll btn should delete all tasks
-      let ul = document.querySelector('ul')
+      let ourList = document.querySelector('ul')
       let AllListItems = ul.querySelectorAll('li')
 
 
@@ -43,12 +43,12 @@
 
       removeButton.addEventListener('click' , function(){
         console.log('Button clicked')
-          AllListItems = ul.querySelectorAll('li')
+          AllListItems = ourList.querySelectorAll('li')
 
           console.log(AllListItems)
 
         //    for(let i=0 ; i<AllListItems.length ; i++){
-        //     ul.removeChild(AllListItems[i])
+        //     ourList.removeChild(AllListItems[i])
         //    }
 
         //ul.remove()
