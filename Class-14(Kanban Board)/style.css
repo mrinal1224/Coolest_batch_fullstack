@@ -118,3 +118,41 @@ body{
 
 }
 
+
+.modal-cont{
+     height: 50vh;
+     width: 45vw;
+     display: flex;
+     position: absolute;
+     top : 30%;
+     left : 27%
+
+}
+
+
+.textArea-cont{
+    height: 100%;
+    width: 70%;
+    background-color: #dfe4ea;
+    resize: none;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+
+}
+
+.priority-colors-container{
+  background-color: #4b4b4b;
+  width: 30%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.priority-color{
+    height: 3rem;
+    width: 5rem;
+}
+
