@@ -82,3 +82,39 @@ body{
     background-color:red ;
  }
 
+
+ .main-cont{
+   display: flex;
+   gap : 2rem;
+   justify-content: center;
+   padding: 2rem;
+ }
+
+
+
+ .ticket-cont{
+    height: 12rem;
+    width: 15rem;
+    background-color: coral;
+}
+
+.ticket-color{
+    height: 1rem;
+    background-color: lightpink;
+}
+
+.ticket-id{
+    height: 2rem;
+    background-color: yellow;
+}
+
+.ticket-lock{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5.5rem;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+
+
+}
+
