@@ -70,3 +70,15 @@ body{
     font-size: 2rem;
     color: white;
 }
+
+
+.add-btn:hover{
+   font-size: 3rem ;
+   background-color:#4BB543 ;
+}
+
+.remove-btn:hover{
+    font-size: 3rem ;
+    background-color:red ;
+ }
+
