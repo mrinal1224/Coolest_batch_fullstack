@@ -11,6 +11,10 @@ let allPriorityColors = document.querySelectorAll('.priority-color')
 
 let modalPriorityColor = 'lightpink'
 
+
+let lockClass = 'fa-lock'
+let unlockClass =  "fa-lock-open"
+
 console.log(allPriorityColors)
 
 let addTaskFlag = false;
@@ -86,5 +90,42 @@ function createTicket(ticketTask ,  ticketColorClass) {
 
    mainCont.appendChild(ticketCont)
    modalCont.style.display = "none";
+
+   handleLock(ticketCont)
    
+}
+
+
+
+// handle Lock
+
+
+function handleLock(ticket){
+  let ticketLockElem = ticket.querySelector('.ticket-lock')
+
+  let ticketLockIcon = ticketLockElem.children[0]
+
+  let ticketTaskArea = document.querySelector('.ticket-task')
+
+//   console.log(ticketLockIcon)
+
+  ticketLockIcon.addEventListener('click' , function(){
+    if(ticketLockIcon.classList.contains(lockClass)){
+        ticketLockIcon.classList.remove(lockClass)
+        ticketLockIcon.classList.add(unlockClass)
+
+        ticketTaskArea.setAttribute('contenteditable', 'true')
+
+
+
+    }
+    else{
+        ticketLockIcon.classList.remove(unlockClass)
+        ticketLockIcon.classList.add(lockClass)
+        ticketTaskArea.setAttribute('contenteditable', 'false')
+    }
+  })
+
+
+
 }
