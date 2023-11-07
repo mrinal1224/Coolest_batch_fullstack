@@ -69,6 +69,7 @@ body{
     align-items: center;
     font-size: 2rem;
     color: white;
+    cursor: pointer;
 }
 
 
@@ -122,7 +123,7 @@ body{
 .modal-cont{
      height: 50vh;
      width: 45vw;
-     display: flex;
+     display: none;
      position: absolute;
      top : 30%;
      left : 27%
