@@ -101,7 +101,7 @@ body{
 
 .ticket-color{
     height: 1rem;
-    background-color: lightpink;
+    background-color: none;
 }
 
 .ticket-id{
@@ -155,5 +155,9 @@ body{
 .priority-color{
     height: 3rem;
     width: 5rem;
+}
+
+.active{
+    border: 5px solid lightsalmon;
 }
 
