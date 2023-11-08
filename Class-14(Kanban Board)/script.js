@@ -10,7 +10,7 @@ let allPriorityColors = document.querySelectorAll('.priority-color')
 
 
 
-// let colors = ['lightpink' , 'lightblue' , 'lightgreen' , 'black']
+let colors = ['lightpink' , 'lightgreen' , 'lightblue' , 'black']
 
 let modalPriorityColor = 'lightpink'
 
@@ -78,7 +78,7 @@ function createTicket(ticketTask ,  ticketColorClass) {
   let ticketCont = document.createElement("div");
   ticketCont.setAttribute("class", "ticket-cont");
 
-  ticketCont.innerHTML = `<div class="ticket-color ${ticketColorClass}"></div>
+  ticketCont.innerHTML = `<div class="ticket-color-cont ${ticketColorClass}"></div>
   <div class="ticket-id">
       1234567
    </div>
@@ -97,6 +97,7 @@ function createTicket(ticketTask ,  ticketColorClass) {
 
    handleLock(ticketCont) // lock
    handleRemoval(ticketCont) // removal
+   handleColor(ticketCont)// change color bands
    
 }
 
@@ -158,5 +159,33 @@ function handleRemoval(ticket){
        if(!removeTaskFlag) return
 
        ticket.remove()
+   })
+}
+
+
+// handle color band
+
+function handleColor(ticket){
+   let ticketColorBand = ticket.querySelector(".ticket-color-cont")
+
+
+   ticketColorBand.addEventListener('click' , function(){
+     let currentColor = ticketColorBand.classList[1]
+    //  console.log(currentColor)
+
+    let currentColorIdx = colors.findIndex(function(color){
+         return currentColor === color
+    })
+
+    currentColorIdx++
+
+    let newTicketColorIdx = currentColorIdx % colors.length
+    let newTicketColorValue = colors[newTicketColorIdx]
+
+
+    ticketColorBand.classList.remove(currentColor)
+    ticketColorBand.classList.add(newTicketColorValue)
+
+    // console.log(currentColorIdx)
    })
 }
