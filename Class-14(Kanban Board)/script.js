@@ -1,10 +1,13 @@
 let addBtn = document.querySelector(".add-btn");
+let removeBtn = document.querySelector('.remove-btn')
 let modalCont = document.querySelector(".modal-cont");
 let mainCont = document.querySelector('.main-cont')
 
 let textAreaCont = document.querySelector('.textArea-cont')
 
 let allPriorityColors = document.querySelectorAll('.priority-color')
+
+
 
 
 // let colors = ['lightpink' , 'lightblue' , 'lightgreen' , 'black']
@@ -18,6 +21,7 @@ let unlockClass =  "fa-lock-open"
 console.log(allPriorityColors)
 
 let addTaskFlag = false;
+let removeTaskFlag = false
 
 addBtn.addEventListener("click", function () {
   addTaskFlag = !addTaskFlag;
@@ -91,7 +95,8 @@ function createTicket(ticketTask ,  ticketColorClass) {
    mainCont.appendChild(ticketCont)
    modalCont.style.display = "none";
 
-   handleLock(ticketCont)
+   handleLock(ticketCont) // lock
+   handleRemoval(ticketCont) // removal
    
 }
 
@@ -125,7 +130,33 @@ function handleLock(ticket){
         ticketTaskArea.setAttribute('contenteditable', 'false')
     }
   })
+}
 
 
 
+//handle Removal of Tickets
+
+
+
+removeBtn.addEventListener('click' , function(){
+    removeTaskFlag = !removeTaskFlag // true
+
+
+    if(removeTaskFlag==true){
+        alert('delete button Activated')
+        removeBtn.style.color = 'red'
+    }
+    else{
+        alert('Delete button Deactivated')
+        removeBtn.style.color = 'white'
+    }
+})
+
+
+function handleRemoval(ticket){
+   ticket.addEventListener('click' , function(){
+       if(!removeTaskFlag) return
+
+       ticket.remove()
+   })
 }
