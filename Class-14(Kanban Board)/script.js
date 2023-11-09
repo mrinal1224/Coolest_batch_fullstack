@@ -132,7 +132,11 @@ function createTicket(ticketTask ,  ticketColorClass , ticketID) {
    handleRemoval(ticketCont) // removal
    handleColor(ticketCont)// change color bands
 
-   ticketsArr.push({ticketColorClass , ticketTask , ticketID:id})
+   if(!ticketID){
+    ticketsArr.push({ticketColorClass , ticketTask , ticketID:id})
+   }
+
+ 
 
    console.log(ticketsArr)
    
