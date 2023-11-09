@@ -57,6 +57,8 @@ modalCont.addEventListener("keydown", function (e) {
     console.log("ticket created");
 
        createTicket(textAreaCont.value , modalPriorityColor)
+       modalCont.style.display = 'none'
+       textAreaCont.value = ''
   }
 });
 
@@ -139,11 +141,11 @@ function createTicket(ticketTask ,  ticketColorClass , ticketID) {
    modalCont.style.display = "none";
 
    handleLock(ticketCont , id) // lock
-   handleRemoval(ticketCont) // removal
-   handleColor(ticketCont)// change color bands
+   handleRemoval(ticketCont , id) // removal
+   handleColor(ticketCont ,id)// change color bands
 
    if(!ticketID){
-    ticketsArr.push({ticketColorClass , ticketTask , ticketID:id})
+    ticketsArr.push({ticketTask , ticketColorClass, ticketID:id})
     localStorage.setItem('tickets' ,JSON.stringify(ticketsArr))
    }
 
@@ -214,22 +216,29 @@ removeBtn.addEventListener('click' , function(){
 })
 
 
-function handleRemoval(ticket){
+function handleRemoval(ticket ,id){
    ticket.addEventListener('click' , function(){
+     
        if(!removeTaskFlag) return
 
+       let idx = getIdx(id)
+
        ticket.remove()
+       ticketsArr.splice(idx , 1)
+
+       localStorage.setItem('tickets' , JSON.stringify(ticketsArr))
    })
 }
 
 
 // handle color band
 
-function handleColor(ticket){
+function handleColor(ticket , id){
    let ticketColorBand = ticket.querySelector(".ticket-color-cont")
 
 
    ticketColorBand.addEventListener('click' , function(){
+     let ticketIdx = getIdx(id)
      let currentColor = ticketColorBand.classList[1]
     //  console.log(currentColor)
 
@@ -245,6 +254,9 @@ function handleColor(ticket){
 
     ticketColorBand.classList.remove(currentColor)
     ticketColorBand.classList.add(newTicketColorValue)
+
+    ticketsArr[ticketIdx].ticketColorClass = newTicketColorValue
+    localStorage.setItem('tickets' , JSON.stringify(ticketsArr))
 
     // console.log(currentColorIdx)
    })
