@@ -8,7 +8,8 @@ let textAreaCont = document.querySelector('.textArea-cont')
 let allPriorityColors = document.querySelectorAll('.priority-color')
 
 
-
+let toolboxColors = document.querySelectorAll('.color-box')
+// console.log(toolboxColors)
 
 let colors = ['lightpink' , 'lightgreen' , 'lightblue' , 'black']
 
@@ -18,7 +19,10 @@ let modalPriorityColor = 'lightpink'
 let lockClass = 'fa-lock'
 let unlockClass =  "fa-lock-open"
 
-console.log(allPriorityColors)
+
+let ticketsArr = []
+
+// console.log(allPriorityColors)
 
 let addTaskFlag = false;
 let removeTaskFlag = false
@@ -61,9 +65,36 @@ allPriorityColors.forEach(function(colorElem){
 
          modalPriorityColor = colorElem.classList[0] // lp lb ...
 
-         console.log(modalPriorityColor)
+        //  console.log(modalPriorityColor)
     })
 })
+
+
+// Get tasks based on color Filter
+
+for(let i=0 ; i<toolboxColors.length ; i++){
+    toolboxColors[i].addEventListener('click', function(){
+        let selectedToolBoxColor = toolboxColors[i].classList[0]
+
+         let filteredTickets = ticketsArr.filter(function(ticket){
+            return selectedToolBoxColor === ticket.ticketColorClass
+         })
+
+         console.log(filteredTickets)
+
+
+        let allTickets = document.querySelectorAll('.ticket-cont')
+        for(let i=0 ; i<allTickets.length ; i++){
+            allTickets[i].remove()
+        }
+
+        filteredTickets.forEach(function(filterdTicket){
+            createTicket(filterdTicket.ticketTask ,filterdTicket.ticketColorClass ,  filterdTicket.ticketID)
+        })
+
+
+    })
+}
 
 
 
@@ -74,13 +105,15 @@ allPriorityColors.forEach(function(colorElem){
 
 // This function generates a ticket
 
-function createTicket(ticketTask ,  ticketColorClass) {
+function createTicket(ticketTask ,  ticketColorClass , ticketID) {
+  let id = ticketID|| shortid() // generates unique id for ticket
+//   console.log(id)
   let ticketCont = document.createElement("div");
   ticketCont.setAttribute("class", "ticket-cont");
 
   ticketCont.innerHTML = `<div class="ticket-color-cont ${ticketColorClass}"></div>
   <div class="ticket-id">
-      1234567
+      ${id}
    </div>
 
    <div class="ticket-task">
@@ -98,6 +131,10 @@ function createTicket(ticketTask ,  ticketColorClass) {
    handleLock(ticketCont) // lock
    handleRemoval(ticketCont) // removal
    handleColor(ticketCont)// change color bands
+
+   ticketsArr.push({ticketColorClass , ticketTask , ticketID:id})
+
+   console.log(ticketsArr)
    
 }
 
