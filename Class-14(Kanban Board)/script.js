@@ -22,6 +22,16 @@ let unlockClass =  "fa-lock-open"
 
 let ticketsArr = []
 
+if(localStorage.getItem('tickets')){
+    ticketsArr = JSON.parse(localStorage.getItem('tickets'))
+
+    ticketsArr.forEach(function(ticket){
+        createTicket(ticket.ticketTask , ticket.ticketColorClass , ticket.ticketID )
+    })
+}
+
+
+
 // console.log(allPriorityColors)
 
 let addTaskFlag = false;
@@ -128,12 +138,13 @@ function createTicket(ticketTask ,  ticketColorClass , ticketID) {
    mainCont.appendChild(ticketCont)
    modalCont.style.display = "none";
 
-   handleLock(ticketCont) // lock
+   handleLock(ticketCont , id) // lock
    handleRemoval(ticketCont) // removal
    handleColor(ticketCont)// change color bands
 
    if(!ticketID){
     ticketsArr.push({ticketColorClass , ticketTask , ticketID:id})
+    localStorage.setItem('tickets' ,JSON.stringify(ticketsArr))
    }
 
  
@@ -147,7 +158,8 @@ function createTicket(ticketTask ,  ticketColorClass , ticketID) {
 // handle Lock
 
 
-function handleLock(ticket){
+function handleLock(ticket , id){
+
   let ticketLockElem = ticket.querySelector('.ticket-lock')
 
   let ticketLockIcon = ticketLockElem.children[0]
@@ -157,6 +169,9 @@ function handleLock(ticket){
 //   console.log(ticketLockIcon)
 
   ticketLockIcon.addEventListener('click' , function(){
+
+    let ticketIdx = getIdx(id) // hxg6n9QYl
+    console.log(ticketIdx)
     if(ticketLockIcon.classList.contains(lockClass)){
         ticketLockIcon.classList.remove(lockClass)
         ticketLockIcon.classList.add(unlockClass)
@@ -171,6 +186,10 @@ function handleLock(ticket){
         ticketLockIcon.classList.add(lockClass)
         ticketTaskArea.setAttribute('contenteditable', 'false')
     }
+
+
+    ticketsArr[ticketIdx].ticketTask = ticketTaskArea.innerText
+    localStorage.setItem('tickets', JSON.stringify(ticketsArr))
   })
 }
 
@@ -229,4 +248,13 @@ function handleColor(ticket){
 
     // console.log(currentColorIdx)
    })
+}
+
+
+function getIdx(id){
+   let ticketIdx = ticketsArr.findIndex(function(ticketObj){
+      return ticketObj.ticketID === id
+   })
+
+   return ticketIdx
 }
