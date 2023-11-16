@@ -13,6 +13,13 @@
         padding: 20px;
         border: 2px solid black;
     }
+
+
+    .test{
+        height: 100px;
+        width: 100px;
+        background-color: red;
+    }
   </style>
 <body>
 
@@ -24,6 +31,7 @@
 
 
 
+
     
 </body>
 
@@ -32,21 +40,31 @@
 
    grandParent.addEventListener('click' , function(){
     console.log('Grand Parent Clicked')
-   })
+   } , true ) // useCapture
 
 
    let parent = document.querySelector('.parent')
 
    parent.addEventListener('click' , function(){
     console.log('Parent Clicked')
-   })
+   } , true)
 
 
    let child = document.querySelector('.child')
 
    child.addEventListener('click' , function(){
     console.log('Child Clicked')
-   })
+   } , false)
+
+
+
+
+// Event bubbling is one of the phases of event propagation in the
+// DOM. When an event occurs on a DOM element, 
+// it first triggers the event handlers on the target element itself, 
+// then it bubbles up to its parent elements in the DOM hierarchy. 
+// This allows for the creation of more general event listeners 
+// that can be applied to parent elements to handle events from multiple child elements.
 
 
 
