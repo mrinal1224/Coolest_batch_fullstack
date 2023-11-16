@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propagation</title>
+</head>
+
+  <style>
+    div{
+        min-height: 100px;
+        min-width: 100px;
+        padding: 20px;
+        border: 2px solid black;
+    }
+  </style>
+<body>
+
+    <div class="grandParent">
+        <div class="parent">
+            <div class="child"></div>
+        </div>
+    </div>
+
+
+
+    
+</body>
+
+<script>
+   let grandParent = document.querySelector('.grandParent')
+
+   grandParent.addEventListener('click' , function(){
+    console.log('Grand Parent Clicked')
+   })
+
+
+   let parent = document.querySelector('.parent')
+
+   parent.addEventListener('click' , function(){
+    console.log('Parent Clicked')
+   })
+
+
+   let child = document.querySelector('.child')
+
+   child.addEventListener('click' , function(){
+    console.log('Child Clicked')
+   })
+
+
+
+</script>
+</html>
