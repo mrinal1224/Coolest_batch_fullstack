@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star component Class</title>
+
+    <style>
+
+
+       .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       }
+
+
+       .star-container{
+        font-size: 50px;
+       }
+
+       .star{
+          color: gray;
+       }
+
+       .star-filled{
+        color : gold
+       }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Star Component</h1>
+
+        <div class="star-container">
+            <span class="star" data-index="1">&#9733</span>
+            <span class="star" data-index="2">&#9733</span>
+            <span class="star" data-index="3">&#9733</span>
+            <span class="star" data-index="4">&#9733</span>
+            <span class="star" data-index="5">&#9733</span>
+        </div>
+
+        <h1>Ratings Count <span id="count">0</span></h1>
+
+
+
+    </div>
+
+
+
+
+
+    
+</body>
+
+
+  <script>
+
+    let container = document.querySelector('.container')
+    let star = document.querySelectorAll('.star')
+
+    let filled = 0
+
+    container.addEventListener('click' , function(e){
+        let currentClicked = e.target.dataset.index // 1
+
+        for(let i=0 ; i<filled ; i++){
+            star[i].classList.remove('star-filled')
+        } // 2
+
+
+        for(let i=0 ; i<currentClicked ; i++){
+            star[i].classList.add('star-filled')
+        } // 1
+
+
+        filled = currentClicked // 2
+
+
+       
+
+
+
+
+
+
+
+
+        
+    })
+
+
+
+  </script>
+</html>

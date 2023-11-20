@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Delegation</title>
+  </head>
+  <body>
+    <div id="categories">
+      <li id="headphones">Headphones</li>
+      <li id="tele">Television</li>
+      <li id="furniture">Furniture</li>
+      <li id="laptops">Laptops</li>
+    </div>
+
+
+    <div id="categories-2">
+        <li id="headphones">Headphones</li>
+        <li id="tele">Television</li>
+        <li id="furniture">Furniture</li>
+        <li id="laptops">Laptops</li>
+      </div>
+
+    <script>
+      let categories = document.querySelector("#categories");
+      categories.addEventListener("click", function (e) {
+        console.log(e.target.innerText);
+      });
+
+      //   let headphones = document.querySelector("#headphones");
+      //   let televison = document.querySelector("#tele");
+      //   let furniture = document.querySelector("#furniture");
+      //   let laptops = document.querySelector("#laptops");
+
+      //   headphones.addEventListener("click", function () {
+      //     console.log("Headphones Clicked");
+      //   });
+
+      //   televison.addEventListener("click", function () {
+      //     console.log("televison Clicked");
+      //   });
+      //   furniture.addEventListener("click", function () {
+      //     console.log("Furniture Clicked");
+      //   });
+      //   laptops.addEventListener("click", function () {
+      //     console.log("Laptops Clicked");
+      //   });
+    </script>
+  </body>
+</html>
