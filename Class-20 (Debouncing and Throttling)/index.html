@@ -9,6 +9,55 @@
     <input type="text" />
   </body>
 
+
+  <table border="">
+    <thead>
+     <th>Aspect</th>
+     <th>Debouncing</th>
+     <th>Throttling</th>
+
+    </thead>
+
+     <tbody>
+         <tr>
+        <td>Purpose</td>
+        <td>Delay function execution until inactivity</td>
+        <td>Limit function execution rate</td>
+       </tr> 
+        <tr>
+        <td>Execution</td>
+        <td>Executes after a pause in events</td>
+        <td>Executes at a steady rate</td>
+    </tr>
+
+    <tr>
+        <td>Event Resets Timer?</td>
+        <td>Yes, resets the timer on each event during delay</td>
+        <td>No, maintains a steady execution interval</td>
+    </tr>
+
+    <tr>
+        <td>Frequency Handling</td>
+        <td>Reduces function calls during rapid events</td>
+        <td>Limits function calls to a set interval</td>
+    </tr>
+
+    <tr>
+        <td>Use Cases</td>
+        <td>Typing (search suggestions), resizing events</td>
+        <td>Scrolling, mouse movement, rate-limited APIs
+        </td>
+    </tr>
+
+
+
+    
+
+        
+
+     </tbody>
+  </table>
+
   <script>
     let count = 0;
     function work() {
@@ -19,7 +68,7 @@
     function debounce(work, delay) {
       let timerId; // undefined
       return function optWorkFn() {
-        // console.log(timerId)
+         console.log(timerId)
         clearTimeout(timerId);
         timerId = setTimeout(function () {
           work();
@@ -43,8 +92,11 @@
 
     let input = document.querySelector("input");
 
-    let optimizedFn = throttle(work, 3000);
+    let optimizedFn = debounce(work, 3000);
 
     input.addEventListener("keydown", optimizedFn);
   </script>
 </html>
+
+
+
