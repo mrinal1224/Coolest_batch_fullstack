@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing and Throttling</title>
+</head>
+<body>
+
+
+  
+
+
+ 
+
+
+
+    <input type="text">
+</body>
+
+  <script>
+      let count = 0
+      function work(){
+          console.log('Network Request' , count)
+          count++
+      }
+
+
+      function debounce(work , delay){
+        let timerId; // undefined
+           return function optWorkFn(){
+
+            clearTimeout(timerId)
+             timerId = setTimeout(function(){
+                work()
+            } ,delay );
+           }
+      }
+
+
+      let input = document.querySelector('input')
+
+
+      let optimizedFn = debounce(work , 5000)
+
+      input.addEventListener('keydown' , optimizedFn)
+
+
+  </script>
+</html>
