@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+  <style>
+    div{
+        height: 200px;
+        width: 200px;
+        background-color: coral;
+    }
+  </style>
+<body>
+
+
+    <div>
+        I am the box
+    </div>
+
+    <button onclick=stopAnimation()>Stop Animation</button>
+
+  
+
+    
+</body>
+
+ <script>
+    //  function sayHello(){
+    //     console.log('Hello')
+    //  }
+
+
+    //  setTimeout(sayHello , 5000)
+
+    function startAnimation(){
+        let target = document.querySelector('div')
+
+        target.style.width = '500px'
+    }
+
+
+    function startAnimation2(){
+        let target = document.querySelector('div')
+
+        target.style.width = '700px'
+    }
+
+
+    let id = setTimeout(startAnimation , 5000)
+    let id2 = setTimeout(startAnimation2 , 7000)
+
+    console.log( 'first set Timeoit id' , id)
+    console.log('second set Timeout id' ,id2)
+
+
+    function stopAnimation(){
+        clearTimeout(id)
+        clearTimeout(id2)
+    }
+
+
+
+
+
+ </script>
+</html>

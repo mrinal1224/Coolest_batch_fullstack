@@ -28,9 +28,6 @@ return div
 
 
 
-
-
-
 commentContainer.addEventListener('click' , function(e){
     let replyBtnClicked = e.target.classList.contains('reply')
     let submitBtnClicked = e.target.classList.contains('submit')
