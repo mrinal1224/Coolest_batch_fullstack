@@ -11,35 +11,22 @@ console.log("before");
 //   console.log("This is File 1 data ->" + data1);
 // });
 
+let promiseReadFile1 = fs.promises.readFile("f1.txt");
+let promiseReadFile2 = fs.promises.readFile("f7.txt");
+let promiseReadFile3 = fs.promises.readFile("f3.txt");
+
+function readFileCallback(data) {
+  console.log("The File data -> " + data);
+}
+
+function handleError(err) {
+  console.log("Error Statement -> " + err);
+}
+
+promiseReadFile1.then(readFileCallback).catch(handleError);
+promiseReadFile2.then(readFileCallback).catch(handleError);
+promiseReadFile3.then(readFileCallback).catch(handleError);
 
 
-let promiseReadFile = fs.promises.readFile('f1.txt')
 
-promiseReadFile.then(function(data){
-    console.log('the file data is -> '+ data)
-})
-promiseReadFile.catch(function(err){
-    console.log(err)
-})
-
-
-let promiseReadFile2 = fs.promises.readFile('f2.txt')
-
-promiseReadFile2.then(function(data2){
-    console.log('the file data is -> '+ data2)
-})
-promiseReadFile2.catch(function(err){
-    console.log(err)
-})
-
-let promiseReadFile3 = fs.promises.readFile('f3.txt')
-
-promiseReadFile3.then(function(data3){
-    console.log('the file data is -> '+ data3)
-})
-promiseReadFile3.catch(function(err){
-    console.log(err)
-})
-
-console.log('After')
-
+console.log("After");
