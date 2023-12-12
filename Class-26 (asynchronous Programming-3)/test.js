@@ -1,5 +1,5 @@
 // Coffee Shop Problem
-
+console.log('Before')
 function placeOrder(drink) {
   return new Promise((resolve, reject) => {
     if (drink === "coffee") {
@@ -45,9 +45,15 @@ async function serveOrder() {
 
     let processedOrder = await processOrder(orderTaken);
     console.log(processedOrder);
+
+    // Will they be executed togther after 4 secs
+
+    // or 1st promise will be resolved right now and 2 will take 4 sec
   } catch (err) {
     console.log(err);
   }
 }
 
 serveOrder();
+
+console.log("after")
