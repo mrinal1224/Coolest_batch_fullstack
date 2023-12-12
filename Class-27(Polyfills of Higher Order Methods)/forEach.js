@@ -1,41 +1,31 @@
 // write our own forEach
 
-const names = ['Mark' , "Steve" , 'John']
-const numbers = [1 ,2 , 3,4]
+const names = ["Mark", "Steve", "John"];
+const numbers = [1, 2, 3, 4];
 
-Array.prototype.myForEach = function(callback){
-    for(let i=0 ; i< this.length ; i++){
-         callback(this[i])
+Array.prototype.myForEach = function (callback) {
+  for (let i = 0; i < this.length; i++) {
+    callback(this[i]);
 
-         // callback -> cb
+    // callback -> cb
 
-         // printName('Mark) -> 1st loop
-         // printName('Steve') -> 2nd loop
-         // printName('John') - 3rd Loop
+    // printName('Mark) -> 1st loop
+    // printName('Steve') -> 2nd loop
+    // printName('John') - 3rd Loop
+  }
+};
 
-    }
+function printName(name) {
+  console.log(name);
 }
 
+names.myForEach(printName);
 
-function printName(name){
-    console.log(name)
-}
+numbers.forEach(function (num) {
+  console.log(num);
+});
 
-
-names.myForEach(printName)
-
-
-console.log(Array.prototype)
-
-
-
-
+// console.log(Array.prototype)
 
 // We need an array takes a callback fn and loops through the array
 // gets the element one by one
-
-
-
-
-
-
