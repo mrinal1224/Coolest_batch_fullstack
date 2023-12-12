@@ -17,8 +17,9 @@ Array.prototype.myMap = function(callback){
     let resultantArray = []
 
     for(let i=0 ; i<this.length ; i++){
-          resultantArray.push(callback(this[i]))
-    }
+            resultantArray.push(callback(this[i]))
+         }
+        
 
     // 1st loop - 1 - sqaure(1) -> 1
     // 2ndLoop -> 2 - square(2) -> 4
@@ -27,7 +28,7 @@ Array.prototype.myMap = function(callback){
     return resultantArray
 }
 
-let numbers = [1 , 2, 3 , 4]
+let numbers = [1 , 2, 3 , 'Mark' , 4]
 
 function sqaure(num){
  return num*num
