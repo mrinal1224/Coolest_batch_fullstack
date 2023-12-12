@@ -1,27 +1,27 @@
-
 // polyfill of Reduce
 
 // callback , acc , initialValue
 
+
 Array.prototype.myReduce = function(cb , initialValue){
 
-   let accumulator = initialValue
+   let accumulator;
+   let firstIndex;
 
 
-   // accumulator = 0
-   //accumulator = 1
-   // Accumulatpr = 3
-    // Accumulatpr = 6
-    // Accumulator = 10
-
-   for(let i=0 ; i<this.length ; i++){
-    accumulator = cb(accumulator , this[i])
+   if(arguments.length===1){
+     accumulator = this[0]
+     firstIndex = 1
    }
 
-   // first loop - calculateSum(0 , 1)
-   // Second Loop - calculateSum(1 , 2 )
-     // Third Loop - calculateSum(3 , 3 )
-     // FourthLoop - calculateSum(6 , 4)
+   else{
+    accumulator = initialValue
+    firstIndex= 0
+   }
+
+   for(let i= firstIndex ; i<this.length ; i++){
+    accumulator = cb(accumulator , this[i])
+   }
 
    return accumulator
 
@@ -41,7 +41,7 @@ function calculateSum (accumulator , currentValue){
 }
 
 
-let sum = arr2.myReduce(calculateSum , 0)
+let sum = arr2.myReduce(calculateSum)
 
 
 console.log(sum)
