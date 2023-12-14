@@ -120,15 +120,11 @@ function buyCar(price) {
 }
 
 Function.prototype.myCall = function (context = {}, ...args) {
-  // this keyword is pointing to buyCar Fn
+  //   console.log(this)
 
-  if (typeof this !== "function") {
-    throw new Error(this + "is not callabale");
-  }
+  // context -> car
 
-  context.fn = this;
-
-  // context ->  car
+  context.fn = this; // buyCar
 
   context.fn(...args);
 };
