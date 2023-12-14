@@ -69,32 +69,29 @@
 
 // Q4
 
-const animals = [
-  { species: "Lion", name: "King" },
-  { species: "Tiger", name: "Queen" },
-];
+// const animals = [
+//   { species: "Lion", name: "King" },
+//   { species: "Tiger", name: "Queen" },
+// ];
 
-function printAnimals(i) {
-  this.print = function () {
-    console.log("#" + i + " " + this.species + ": " + this.name);
-  };
-  this.print();
-}
+// function printAnimals(i) {
+//   this.print = function () {
+//     console.log("#" + i + " " + this.species + ": " + this.name);
+//   };
+//   this.print();
+// }
 
-for (let i = 0; i < animals.length; i++) {
-  printAnimals.call(animals[i], i);
-}
+// for (let i = 0; i < animals.length; i++) {
+//   printAnimals.call(animals[i], i);
+// }
 
 // output = #0 Lion King
 //          #1 Tiger Queen
 
-const numbers = [1, 2, 3, 4, 5];
+// const numbers = [1, 2, 3, 4, 5];
 
-
-
-console.log(Math.max.apply(null, numbers))
-console.log(Math.min.apply(null , numbers))
-
+// console.log(Math.max.apply(null, numbers))
+// console.log(Math.min.apply(null , numbers))
 
 // let max = -Infinity
 // let min = Infinity
@@ -111,8 +108,29 @@ console.log(Math.min.apply(null , numbers))
 // console.log(max)
 // console.log(min)
 
+// Call Polyfill
 
+let car = {
+  name: "Mercedes",
+  color: "White",
+};
 
+function buyCar(price) {
+  console.log(`I bought a ${this.color} ${this.name} of ${price} `);
+}
 
+Function.prototype.myCall = function (context = {}, ...args) {
+  // this keyword is pointing to buyCar Fn
 
+  if (typeof this !== "function") {
+    throw new Error(this + "is not callabale");
+  }
 
+  context.fn = this;
+
+  // context ->  car
+
+  context.fn(...args);
+};
+
+buyCar.myCall(car, "3000000");
