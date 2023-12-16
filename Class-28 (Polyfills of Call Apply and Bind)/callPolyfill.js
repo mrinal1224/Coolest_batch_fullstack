@@ -19,9 +19,9 @@ Function.prototype.myCall = function (context = {}, ...args) {
 
     
   
-    context.fn = this; // buyCar
+    context.myFunction = this; // buyCar
   
-    context.fn(...args);
+    context.myFunction(...args);
   };
   
   buyCar.myCall(car, "3000000");
@@ -41,6 +41,10 @@ Function.prototype.myCall = function (context = {}, ...args) {
 // let ans = Array.isArray(arr)
 
 // console.log(ans)
+
+
+
+
 
 
 
