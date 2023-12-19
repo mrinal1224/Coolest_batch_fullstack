@@ -55,27 +55,27 @@
 
 // Promisified Functions
 
-function Action1(name, cb) {
+function Action1(name) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      cb(`My name is ${name}`);
+      resolve(`My name is ${name}`);
     }, 1000);
   });
 }
 
-function Action2(age, cb) {
+function Action2(age) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      cb(`My age is ${age}`);
-    }, 1000);
+      resolve(`My age is ${age}`);
+    }, 3000);
   });
 }
 
-function Action3(occupation, cb) {
+function Action3(occupation) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      cb(`I am a ${occupation}`);
-    }, 1000);
+      resolve(`I am a ${occupation}`);
+    }, 2000);
   });
 }
 
@@ -92,17 +92,41 @@ function Action3(occupation, cb) {
 
 // Promise Chaining
 
-Action1("Steve")
-  .then((name) => {
-    console.log(name);
-    return Action2(24);
-  })
-  .then((age) => {
-    console.log(age);
-    return Action3("Software Engineer");
-  })
-  .then((occupation) => {
-    console.log(occupation);
-  });
+// Action1("Steve")
+//   .then((name) => {
+//     console.log(name);
+//     return Action2(24);
+//   })
+//   .then((age) => {
+//     console.log(age);
+//     return Action3("Software Engineer");
+//   })
+//   .then((occupation) => {
+//     console.log(occupation);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+// Promise Combinators
+
+// .all , .race , .allSettled , .any
+
+Action1("Steve");
+Action2(24);
+Action3("Software Engineer");
+
+// Promise.all
+
+Promise.all([Action1("Steve"), Action2(24), Action3("Software Engineer")]).then((res)=>{
+    console.log(res)
+}).catch((err)=>{
+    console.log(err)
+});
+
+
+// Promise.race
+
+
 
 
