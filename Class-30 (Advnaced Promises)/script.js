@@ -59,7 +59,7 @@ function Action1(name) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(`My name is ${name}`);
-    }, 1000);
+    }, 2000);
   });
 }
 
@@ -75,7 +75,7 @@ function Action3(occupation) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(`I am a ${occupation}`);
-    }, 2000);
+    }, 1000);
   });
 }
 
@@ -118,14 +118,61 @@ Action3("Software Engineer");
 
 // Promise.all
 
-Promise.all([Action1("Steve"), Action2(24), Action3("Software Engineer")]).then((res)=>{
+// Promise.all([Action1("Steve"), Action2(24), Action3("Software Engineer")]).then((res)=>{
+//     console.log(res)
+// }).catch((err)=>{
+//     console.log(err)
+// });
+
+
+// Promise.race
+
+// Promise.race([Action1("Steve"), Action2(24), Action3("Software Engineer")]).then((res)=>{
+//     console.log(res)
+// }).catch((err)=>{
+//     console.log(err)
+// });
+
+
+// Promise.allSettled
+
+// Promise.allSettled([Action1("Steve"), Action2(24), Action3("Software Engineer")]).then((res)=>{
+//     console.log(res)
+// }).catch((err)=>{
+//     console.err("Error Promise Rejected : " + err)
+// });
+
+
+
+Promise.race([Action2(24) ,Action1("Steve"), Action3("Software Engineer")]).then((res)=>{
+    console.log(res)
+}).catch((err)=>{
+    console.log(err)
+});
+
+// Promise.any
+
+Promise.any([Action2(24), Action1("Steve"), Action3("Software Engineer")]).then((res)=>{
     console.log(res)
 }).catch((err)=>{
     console.log(err)
 });
 
 
-// Promise.race
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
