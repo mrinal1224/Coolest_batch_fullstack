@@ -66,7 +66,7 @@ function Action1(name) {
 function Action2(age) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(`My age is ${age}`);
+      reject(`My age is ${age}`);
     }, 3000);
   });
 }
@@ -112,9 +112,9 @@ function Action3(occupation) {
 
 // .all , .race , .allSettled , .any
 
-Action1("Steve");
-Action2(24);
-Action3("Software Engineer");
+// Action1("Steve");
+// Action2(24);
+// Action3("Software Engineer");
 
 // Promise.all
 
@@ -124,7 +124,6 @@ Action3("Software Engineer");
 //     console.log(err)
 // });
 
-
 // Promise.race
 
 // Promise.race([Action1("Steve"), Action2(24), Action3("Software Engineer")]).then((res)=>{
@@ -132,7 +131,6 @@ Action3("Software Engineer");
 // }).catch((err)=>{
 //     console.log(err)
 // });
-
 
 // Promise.allSettled
 
@@ -142,38 +140,62 @@ Action3("Software Engineer");
 //     console.err("Error Promise Rejected : " + err)
 // });
 
+// Promise.race([Action2(24) ,Action1("Steve"), Action3("Software Engineer")]).then((res)=>{
+//     console.log(res)
+// }).catch((err)=>{
+//     console.log(err)
+// });
 
+// // Promise.any
 
-Promise.race([Action2(24) ,Action1("Steve"), Action3("Software Engineer")]).then((res)=>{
-    console.log(res)
-}).catch((err)=>{
-    console.log(err)
-});
+// Promise.any([Action2(24), Action1("Steve"), Action3("Software Engineer")]).then((res)=>{
+//     console.log(res)
+// }).catch((err)=>{
+//     console.log(err)
+// });
 
-// Promise.any
+// Promise.all Polyfill
 
-Promise.any([Action2(24), Action1("Steve"), Action3("Software Engineer")]).then((res)=>{
-    console.log(res)
-}).catch((err)=>{
-    console.log(err)
-});
+// inputs must be promises and they should be inside a array
+// Takes Promise
+// Resolves each promise one by one
+// Provides the Final Ouput in a Array
+// Return fullfilled values inside an Array
+// then(resolve , reject)
 
+Promise.allPolyfill = (promises) => {
+  return new Promise((resolve, reject) => {
+    let results = [];
 
+    if (!promises.length) {
+      resolve(results);
+      return;
+    }
 
+    let pending = promises.length;
 
+    promises.forEach((promise, idx) => {
+      Promise.resolve(promise).then((res) => {
+        results[idx] = res;
+        pending--;
 
+        if (pending === 0) {
+          resolve(results);
+        }
+      }, reject);
+    });
+  });
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Promise.allPolyfill([
+  Action1("Steve"),
+  Action2(24),
+  Action3("Software Engineer"),
+]).then(
+  (res) => {
+    console.log(res);
+  },
+  function (err) {
+    console.log('Error:' , err);
+  }
+);
