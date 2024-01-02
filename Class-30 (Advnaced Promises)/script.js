@@ -199,3 +199,8 @@ Promise.allPolyfill([
     console.log('Error:' , err);
   }
 );
+
+
+// map filter reduce forEach
+// Call apply Bind 
+// Promise.all
