@@ -2,18 +2,29 @@ import React, { useState } from "react";
 
 function Counter() {
   const [count, setCount] = useState(0);
+  const [factor , setFactor] = useState(1)
 
   function incerment() {
-    setCount(count + 1);
+    setCount(count + factor);
   }
-
+ 
   function decrement() {
     if (count === 0) {
       setCount(count);
     } else {
-      setCount(count - 1);
+      setCount(count - factor);
     }
   }
+
+  function incermentFactor(){
+    setFactor(factor+1)
+  }
+
+  function decrementFactor(){
+    setFactor(factor-1)
+  }
+
+
   return (
     <div>
       <h1>Counter</h1>
@@ -22,6 +33,10 @@ function Counter() {
 
       <button onClick={incerment}>Increment</button>
       <button onClick={decrement}>Decrement</button>
+
+      <h3>Factor : {factor}</h3>
+      <button onClick={incermentFactor}>Increment Factor</button>
+      <button onClick={decrementFactor}>Decrement Factor</button>
     </div>
   );
 }
