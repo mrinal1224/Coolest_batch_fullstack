@@ -1,5 +1,5 @@
-function MyComponent(){
-    return <h2>This is My First Component</h2>
+function MyComponent({name , greeting , cars}){
+ return <h2>My Name is {name} {greeting} {cars} </h2>
 }
 
 export default MyComponent
