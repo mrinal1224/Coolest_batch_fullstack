@@ -3,6 +3,7 @@ import MyComponent2 from "./components/MyComponent2";
 import Event from "./components/Event";
 import Counter from "./components/Counter";
 import Products from "./components/Products";
+import Form from "./components/Form";
 
 function App() {
 
@@ -19,7 +20,9 @@ function App() {
 
        {/* <Counter/> */}
 
-       <Products/>
+       {/* <Products/> */}
+
+       <Form/>
 
 
 
