@@ -1,4 +1,5 @@
 import Banner from "./components/Banner"
+import Movies from "./components/Movies"
 import NavBar from "./components/NavBar"
 
 function App() {
@@ -8,6 +9,8 @@ function App() {
       <NavBar/>
 
       <Banner/>
+
+      <Movies/>
 
      </>
   
