@@ -4,6 +4,7 @@ import Event from "./components/Event";
 import Counter from "./components/Counter";
 import Products from "./components/Products";
 import Form from "./components/Form";
+import Ue1 from "./components/Ue1";
 
 function App() {
 
@@ -22,7 +23,9 @@ function App() {
 
        {/* <Products/> */}
 
-       <Form/>
+       {/* <Form/> */}
+
+       <Ue1/>
 
 
 
