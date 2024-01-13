@@ -1,8 +1,6 @@
 import React from "react";
 
 function MovieCard({
-  name,
-  posterPath,
   movieObject,
   handleAddToWatchList,
   watchlist,
@@ -20,13 +18,11 @@ function MovieCard({
     <div
       className="h-[40vh] w-[200px] bg-cover flex  rounded-lg hover:scale-110 duration-300 items-end"
       style={{
-        backgroundImage: `url(https://image.tmdb.org/t/p/original/${posterPath})`,
+        backgroundImage: `url(https://image.tmdb.org/t/p/original/${movieObject.poster_path})`,
       }}
     >
       {doesContain(movieObject) ? (
-        <div
-          className="flex justify-center items-center"
-        >
+        <div className="flex justify-center items-center">
           &#10060;
           {/* // code for cross */}
         </div>
@@ -40,7 +36,7 @@ function MovieCard({
       )}
 
       <div className="text-white w-full text-center text-xl p-2 bg-gray-900/70 rounded-lg">
-        {name}
+        {movieObject.title}
       </div>
     </div>
   );

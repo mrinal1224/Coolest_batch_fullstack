@@ -7,21 +7,13 @@ import WatchList from "./components/WatchList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
+  const [watchlist, setWatchlist] = useState([]);
 
-  const [watchlist , setWatchlist] = useState([])
-
-
-  const handleAddtoWatchList = (movieObj)=>{
-
-     
-
-     let updatedWatchlist = [...watchlist , movieObj]
-     setWatchlist(updatedWatchlist)
-     console.log(updatedWatchlist)
-  }
-
-
-
+  const handleAddtoWatchList = (movieObj) => {
+    let updatedWatchlist = [...watchlist, movieObj];
+    setWatchlist(updatedWatchlist);
+    console.log(updatedWatchlist);
+  };
 
   return (
     <>
@@ -33,12 +25,19 @@ function App() {
             path="/"
             element={
               <>
-                <Banner /> <Movies handleAddtoWatchList={handleAddtoWatchList} watchlist={watchlist}   />
+                <Banner />
+                <Movies
+                  handleAddtoWatchList={handleAddtoWatchList}
+                  watchlist={watchlist}
+                />
               </>
             }
           />
 
-          <Route path="/watchlist" element={<WatchList watchList={watchlist} />} />
+          <Route
+            path="/watchlist"
+            element={<WatchList watchList={watchlist} />}
+          />
         </Routes>
       </BrowserRouter>
     </>
