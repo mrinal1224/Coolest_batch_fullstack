@@ -12,10 +12,15 @@ function App() {
 
 
   const handleAddtoWatchList = (movieObj)=>{
+
+     
+
      let updatedWatchlist = [...watchlist , movieObj]
      setWatchlist(updatedWatchlist)
      console.log(updatedWatchlist)
   }
+
+
 
 
   return (
@@ -28,12 +33,12 @@ function App() {
             path="/"
             element={
               <>
-                <Banner /> <Movies handleAddtoWatchList={handleAddtoWatchList}  />
+                <Banner /> <Movies handleAddtoWatchList={handleAddtoWatchList} watchlist={watchlist}   />
               </>
             }
           />
 
-          <Route path="/watchlist" element={<WatchList />} />
+          <Route path="/watchlist" element={<WatchList watchList={watchlist} />} />
         </Routes>
       </BrowserRouter>
     </>
