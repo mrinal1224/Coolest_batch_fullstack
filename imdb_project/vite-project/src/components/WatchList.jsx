@@ -2,74 +2,70 @@ import React, { useEffect, useState } from "react";
 
 import genreids from "../utility/genre";
 
+function WatchList({ watchList, setWatchList }) {
+  const [search, setSearch] = useState("");
+  const [genreList, setGenreList] = useState([]);
+  const [currGenre, setCurrGenre] = useState("All Genres");
 
-function WatchList({ watchList , setWatchList }) {
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+    //  console.log(e.target)
+  };
 
-  const [search , setSearch] = useState('')
-  const [genreList , setGenreList] = useState([])
-  const [currGenre , setCurrGenre] = useState('All Genres')
+  const handleFilter = (genre) => {
+    setCurrGenre(genre);
+  };
 
+  useEffect(() => {
+    let temp = watchList.map((movieObj) => {
+      return genreids[movieObj.genre_ids[0]];
+    });
 
-  const handleSearch = (e)=>{
-   setSearch(e.target.value)
-  //  console.log(e.target)
-  }
+    temp = new Set(temp);
 
-  const handleFilter=(genre)=>{
-    setCurrGenre(genre)
-  }
+    console.log(temp);
 
-  useEffect(()=>{
-    let temp = watchList.map((movieObj)=>{
-       return genreids[movieObj.genre_ids[0]]
-    })
-
-    temp = new Set(temp)
-
-    console.log(temp)
-
-     setGenreList(["All Genres", ...temp])
+    setGenreList(["All Genres", ...temp]);
 
     //  console.log([...temp])
-  } , [])
+  }, []);
 
+  const handleAscnedingRatings = () => {
+    let sortedAscending = watchList.sort((movieObjA, movieObjB) => {
+      return movieObjA.vote_average - movieObjB.vote_average;
+    });
 
-  const handleAscnedingRatings = ()=>{
-       let sortedAscending = watchList.sort((movieObjA , movieObjB)=>{
-          return movieObjA.vote_average - movieObjB.vote_average
-       })
+    setWatchList([...sortedAscending]);
+  };
 
-         setWatchList([...sortedAscending])
-  }
+  const handleDescendingRatings = () => {
+    let sortedDescending = watchList.sort((movieObjA, movieObjB) => {
+      return movieObjB.vote_average - movieObjA.vote_average;
+    });
 
-  const handleDescendingRatings = ()=>{
-    let sortedDescending = watchList.sort((movieObjA , movieObjB)=>{
-       return movieObjB.vote_average - movieObjA.vote_average
-    })
-
-    setWatchList([...sortedDescending])
-}
-
-
+    setWatchList([...sortedDescending]);
+  };
 
   return (
     <>
       {/* Genre Based Filtering */}
 
-
       <div className="flex justify-center m-4">
-         {genreList.map((genre)=>{
-           return <div onClick={()=> handleFilter(genre)} className={ currGenre==genre? "mx-4 flex justify-center items-center bg-blue-400 h-[3rem] w-[9rem] text-white font-bold border rounded-xl" : 'flex justify-center items-center h-[3rem] w-[9rem] bg-gray-400/50 rounded-xl text-white font-bold mx-4'}>{genre}</div>
-         })}
-        
+        {genreList.map((genre) => {
+          return (
+            <div
+              onClick={() => handleFilter(genre)}
+              className={
+                currGenre == genre
+                  ? "mx-4 flex justify-center items-center bg-blue-400 h-[3rem] w-[9rem] text-white font-bold border rounded-xl"
+                  : "flex justify-center items-center h-[3rem] w-[9rem] bg-gray-400/50 rounded-xl text-white font-bold mx-4"
+              }
+            >
+              {genre}
+            </div>
+          );
+        })}
       </div>
-
-
-
-
-
-
-
 
       {/* Search Field */}
       <div className="flex justify-center my-10">
@@ -89,7 +85,17 @@ function WatchList({ watchList , setWatchList }) {
           <thead className="border border-gray-200 rounded-lg bg-gray-200">
             <tr>
               <th>Name</th>
-              <th><i onClick={handleAscnedingRatings}class="fa-solid fa-arrow-up"></i> Ratings <i onClick ={handleDescendingRatings} class="fa-solid fa-arrow-down"></i></th>
+              <th>
+                <i
+                  onClick={handleAscnedingRatings}
+                  class="fa-solid fa-arrow-up"
+                ></i>{" "}
+                Ratings{" "}
+                <i
+                  onClick={handleDescendingRatings}
+                  class="fa-solid fa-arrow-down"
+                ></i>
+              </th>
               <th>Popularity</th>
               <th>Genre</th>
               <th>Delete Movies</th>
@@ -97,32 +103,34 @@ function WatchList({ watchList , setWatchList }) {
           </thead>
 
           <tbody>
-            {watchList.filter((movieObj)=>{
-              if(currGenre=='All Genres'){
-                return true
-              }
-              else{
-                return genreids[movieObj.genre_ids[0]]==currGenre // Drama;
-              }
-            }).filter((movieObj)=>(
-             movieObj.title.toLowerCase().includes(search.toLowerCase())
-            )).map((movieObj) => (
-              <tr className="border-b-2">
-                <td className="flex items-center px-6 py-4">
-                  <img
-                    className="h-[6rem] w-[10rem]"
-                    src={`https://image.tmdb.org/t/p/original/${movieObj.poster_path}`}
-                  />
-                  <div className="mx-10">{movieObj.title}</div>
-                </td>
+            {watchList
+              .filter((movieObj) => {
+                if (currGenre == "All Genres") {
+                  return true;
+                } else {
+                  return genreids[movieObj.genre_ids[0]] == currGenre; // Drama;
+                }
+              })
+              .filter((movieObj) =>
+                movieObj.title.toLowerCase().includes(search.toLowerCase())
+              )
+              .map((movieObj) => (
+                <tr className="border-b-2">
+                  <td className="flex items-center px-6 py-4">
+                    <img
+                      className="h-[6rem] w-[10rem]"
+                      src={`https://image.tmdb.org/t/p/original/${movieObj.poster_path}`}
+                    />
+                    <div className="mx-10">{movieObj.title}</div>
+                  </td>
 
-                <td>{movieObj.vote_average}</td>
-                <td>{movieObj.popularity}</td>
-                <td>{genreids[movieObj.genre_ids[0]]}</td>
+                  <td>{movieObj.vote_average}</td>
+                  <td>{movieObj.popularity}</td>
+                  <td>{genreids[movieObj.genre_ids[0]]}</td>
 
-                <td className="text-red-500">Delete</td>
-              </tr>
-            ))}
+                  <td className="text-red-500">Delete</td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
