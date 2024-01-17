@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Banner from "./components/Banner";
 import Movies from "./components/Movies";
 import NavBar from "./components/NavBar";
@@ -12,8 +12,17 @@ function App() {
   const handleAddtoWatchList = (movieObj) => {
     let updatedWatchlist = [...watchlist, movieObj];
     setWatchlist(updatedWatchlist);
+    localStorage.setItem('movies' , JSON.stringify(updatedWatchlist))
     console.log(updatedWatchlist);
   };
+
+  useEffect(()=>{
+      let moviesFromLocalStorage = localStorage.getItem('movies')
+      if(!moviesFromLocalStorage){
+        return 
+      }
+      setWatchlist(JSON.parse(moviesFromLocalStorage))
+  } , [])
 
   return (
     <>
