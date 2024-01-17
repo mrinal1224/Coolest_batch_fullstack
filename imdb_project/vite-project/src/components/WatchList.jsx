@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import genreids from "../utility/genre";
 
 
-function WatchList({ watchList }) {
+function WatchList({ watchList , setWatchList }) {
 
   const [search , setSearch] = useState('')
   const [genreList , setGenreList] = useState([])
@@ -32,6 +32,23 @@ function WatchList({ watchList }) {
 
     //  console.log([...temp])
   } , [])
+
+
+  const handleAscnedingRatings = ()=>{
+       let sortedAscending = watchList.sort((movieObjA , movieObjB)=>{
+          return movieObjA.vote_average - movieObjB.vote_average
+       })
+
+         setWatchList([...sortedAscending])
+  }
+
+  const handleDescendingRatings = ()=>{
+    let sortedDescending = watchList.sort((movieObjA , movieObjB)=>{
+       return movieObjB.vote_average - movieObjA.vote_average
+    })
+
+    setWatchList([...sortedDescending])
+}
 
 
 
@@ -72,7 +89,7 @@ function WatchList({ watchList }) {
           <thead className="border border-gray-200 rounded-lg bg-gray-200">
             <tr>
               <th>Name</th>
-              <th>Ratings</th>
+              <th><i onClick={handleAscnedingRatings}class="fa-solid fa-arrow-up"></i> Ratings <i onClick ={handleDescendingRatings} class="fa-solid fa-arrow-down"></i></th>
               <th>Popularity</th>
               <th>Genre</th>
               <th>Delete Movies</th>
