@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import genreids from "../utility/genre";
 
@@ -6,6 +6,8 @@ import genreids from "../utility/genre";
 function WatchList({ watchList }) {
 
   const [search , setSearch] = useState('')
+  const [genreList , setGenreList] = useState([])
+  const [currGenre , setCurrGenre] = useState('All Genres')
 
 
   const handleSearch = (e)=>{
@@ -13,9 +15,39 @@ function WatchList({ watchList }) {
   //  console.log(e.target)
   }
 
+  const handleFilter=(genre)=>{
+    setCurrGenre(genre)
+  }
+
+  useEffect(()=>{
+    let temp = watchList.map((movieObj)=>{
+       return genreids[movieObj.genre_ids[0]]
+    })
+
+    temp = new Set(temp)
+
+    console.log(temp)
+
+     setGenreList(["All Genres", ...temp])
+
+    //  console.log([...temp])
+  } , [])
+
+
+
   return (
     <>
       {/* Genre Based Filtering */}
+
+
+      <div className="flex justify-center m-4">
+         {genreList.map((genre)=>{
+           return <div onClick={()=> handleFilter(genre)} className={ currGenre==genre? "mx-4 flex justify-center items-center bg-blue-400 h-[3rem] w-[9rem] text-white font-bold border rounded-xl" : 'flex justify-center items-center h-[3rem] w-[9rem] bg-gray-400/50 rounded-xl text-white font-bold mx-4'}>{genre}</div>
+         })}
+        
+      </div>
+
+
 
 
 
@@ -48,7 +80,14 @@ function WatchList({ watchList }) {
           </thead>
 
           <tbody>
-            {watchList.filter((movieObj)=>(
+            {watchList.filter((movieObj)=>{
+              if(currGenre=='All Genres'){
+                return true
+              }
+              else{
+                return genreids[movieObj.genre_ids[0]]==currGenre // Drama;
+              }
+            }).filter((movieObj)=>(
              movieObj.title.toLowerCase().includes(search.toLowerCase())
             )).map((movieObj) => (
               <tr className="border-b-2">
