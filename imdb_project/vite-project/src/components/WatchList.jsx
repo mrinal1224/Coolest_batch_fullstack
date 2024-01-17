@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+import genreids from "../utility/genre";
+
+
 function WatchList({ watchList }) {
 
   const [search , setSearch] = useState('')
@@ -13,6 +16,11 @@ function WatchList({ watchList }) {
   return (
     <>
       {/* Genre Based Filtering */}
+
+
+
+
+
 
       {/* Search Field */}
       <div className="flex justify-center my-10">
@@ -40,7 +48,6 @@ function WatchList({ watchList }) {
           </thead>
 
           <tbody>
-            
             {watchList.filter((movieObj)=>(
              movieObj.title.toLowerCase().includes(search.toLowerCase())
             )).map((movieObj) => (
@@ -55,7 +62,7 @@ function WatchList({ watchList }) {
 
                 <td>{movieObj.vote_average}</td>
                 <td>{movieObj.popularity}</td>
-                <td>Action</td>
+                <td>{genreids[movieObj.genre_ids[0]]}</td>
 
                 <td className="text-red-500">Delete</td>
               </tr>
