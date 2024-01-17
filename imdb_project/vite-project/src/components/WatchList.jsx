@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 function WatchList({ watchList }) {
+
+  const [search , setSearch] = useState('')
+
+
+  const handleSearch = (e)=>{
+   setSearch(e.target.value)
+  //  console.log(e.target)
+  }
+
   return (
     <>
       {/* Genre Based Filtering */}
@@ -11,6 +20,8 @@ function WatchList({ watchList }) {
           placeholder="Search Movies"
           className="h-[3rem] w-[18rem] bg-gray-200 px-4 outline-none border border-slate-600"
           type="text"
+          onChange={handleSearch}
+          value={search}
         />
       </div>
 
@@ -29,7 +40,10 @@ function WatchList({ watchList }) {
           </thead>
 
           <tbody>
-            {watchList.map((movieObj) => (
+            
+            {watchList.filter((movieObj)=>(
+             movieObj.title.toLowerCase().includes(search.toLowerCase())
+            )).map((movieObj) => (
               <tr className="border-b-2">
                 <td className="flex items-center px-6 py-4">
                   <img
