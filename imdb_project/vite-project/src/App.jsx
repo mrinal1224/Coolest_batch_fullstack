@@ -30,7 +30,7 @@ function App() {
     <>
       <BrowserRouter>
 
-       <MovieContext.Provider value={{handleAddtoWatchList , watchlist}}>
+       <MovieContext.Provider value={{handleAddtoWatchList , watchlist , setWatchlist}}>
         <NavBar />
 
         <Routes>
@@ -46,7 +46,7 @@ function App() {
 
           <Route
             path="/watchlist"
-            element={<WatchList watchList={watchlist} setWatchList={setWatchlist} />}
+            element={<WatchList />}
           />
         </Routes>
         </MovieContext.Provider>

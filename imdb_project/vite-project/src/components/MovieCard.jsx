@@ -6,9 +6,6 @@ function MovieCard({ movieObject }) {
 
   let {watchlist , handleAddtoWatchList} = useContext(MovieContext)
 
-
-
-
   function doesContain() {
     for (let i = 0; i < watchlist.length; i++) {
       if (watchlist[i].id === movieObject.id) {
