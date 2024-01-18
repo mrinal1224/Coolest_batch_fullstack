@@ -1,6 +1,14 @@
 import React from "react";
+import { MovieContext } from "./MovieContext";
+import { useContext } from "react";
 
-function MovieCard({ movieObject, handleAddToWatchList, watchlist }) {
+function MovieCard({ movieObject }) {
+
+  let {watchlist , handleAddtoWatchList} = useContext(MovieContext)
+
+
+
+
   function doesContain() {
     for (let i = 0; i < watchlist.length; i++) {
       if (watchlist[i].id === movieObject.id) {
@@ -24,7 +32,7 @@ function MovieCard({ movieObject, handleAddToWatchList, watchlist }) {
         </div>
       ) : (
         <div
-          onClick={() => handleAddToWatchList(movieObject)}
+          onClick={() => handleAddtoWatchList (movieObject)}
           className="m-4 flex justify-center h-8 w-8 items-center rounded-lg bg-gray-900/60"
         >
           &#128525;
