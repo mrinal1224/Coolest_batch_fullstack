@@ -11,10 +11,10 @@ const store = createStore(reducer) // 3 set the reducer to the store
 
 
 // reducer
-function reducer(state = {amount : 1000} , action){
+function reducer(state = {amount : 1000 , name:'Mrinal'} , action){
 
     if(action.type===deposit){
-        return {amount : state.amount+ action.payload}
+        return {amount : state.amount+ action.payload , name : state.name}
     }
 
     if(action.type===withdraw){
