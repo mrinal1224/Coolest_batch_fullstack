@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/CartSlice";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -16,7 +20,7 @@ const Products = () => {
 
 
   const handleAdd=(product)=>{
-    // the job is to add the product to the state
+        dispatch(addToCart(product))
   }
 
   return (
