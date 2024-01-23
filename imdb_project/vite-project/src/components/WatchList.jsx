@@ -5,7 +5,7 @@ import { MovieContext } from "./MovieContext";
 
 function WatchList() {
 
-  const {watchlist , setWatchlist} = useContext(MovieContext)
+  const {watchlist , setWatchlist , DeleteFromWatchList} = useContext(MovieContext)
 
 
   const [search, setSearch] = useState("");
@@ -133,7 +133,7 @@ function WatchList() {
                   <td>{movieObj.popularity}</td>
                   <td>{genreids[movieObj.genre_ids[0]]}</td>
 
-                  <td className="text-red-500">Delete</td>
+                  <td onClick={()=>DeleteFromWatchList(movieObj)} className="text-red-500">Delete</td>
                 </tr>
               ))}
           </tbody>

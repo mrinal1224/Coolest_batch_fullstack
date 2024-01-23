@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 function MovieCard({ movieObject }) {
 
-  let {watchlist , handleAddtoWatchList} = useContext(MovieContext)
+  let {watchlist , handleAddtoWatchList ,DeleteFromWatchList } = useContext(MovieContext)
 
   function doesContain() {
     for (let i = 0; i < watchlist.length; i++) {
@@ -23,7 +23,7 @@ function MovieCard({ movieObject }) {
       }}
     >
       {doesContain(movieObject) ? (
-        <div className="m-4 flex justify-center h-8 w-8 items-center rounded-lg bg-gray-900/60">
+        <div onClick={()=>DeleteFromWatchList(movieObject)} className="m-4 flex justify-center h-8 w-8 items-center rounded-lg bg-gray-900/60">
           &#10060;
           {/* // code for cross */}
         </div>
