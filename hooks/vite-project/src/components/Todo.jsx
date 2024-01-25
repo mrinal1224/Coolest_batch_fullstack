@@ -2,8 +2,6 @@ import { useState } from "react";
 import uuid from 'react-uuid';
 import {TiTick, TiTrash} from 'react-icons/ti';
 
-
-
 const Todo = () => {
   const [list, setList] = useState([]);
 
@@ -11,6 +9,12 @@ const Todo = () => {
       title: "",
       by: ""
     });
+
+
+    // const [task, dispatchTask] = useReducer(FormReducers, {
+    //     title: "",
+    //     by: "",
+    //   });
   
   const handleTask = (e) => {
     e.preventDefault();
@@ -18,6 +22,15 @@ const Todo = () => {
     const value = e.target.value;
     setTask({...task, [key]: value});
   }
+
+//   const handleTask = (e) => {
+//     e.preventDefault();
+//     dispatchTask({
+//       type: "HANDLE_TASK",
+//       field: e.target.name,
+//       payload: e.target.value,
+//     });
+//   };
 
   const addTask = () => {
     console.log(task);
