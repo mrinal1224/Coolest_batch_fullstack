@@ -10,11 +10,6 @@ const Todo = () => {
       by: ""
     });
 
-
-    // const [task, dispatchTask] = useReducer(FormReducers, {
-    //     title: "",
-    //     by: "",
-    //   });
   
   const handleTask = (e) => {
     e.preventDefault();
@@ -23,25 +18,14 @@ const Todo = () => {
     setTask({...task, [key]: value});
   }
 
-//   const handleTask = (e) => {
-//     e.preventDefault();
-//     dispatchTask({
-//       type: "HANDLE_TASK",
-//       field: e.target.name,
-//       payload: e.target.value,
-//     });
-//   };
+
 
   const addTask = () => {
-    console.log(task);
-    console.log(uuid());
     const updated = {...task, "id": uuid(), "isDone": false}
-    console.log(updated);
     setList([...list, updated]);
   }
 
   const markDone = (id) => {
-    console.log(`Task with ${id} is done!`);
     const index = list.findIndex((task) => task.id === id);
     const doneTask = [...list];
     doneTask[index].isDone = true;
@@ -49,7 +33,6 @@ const Todo = () => {
   }
 
   const deleteTask = (id) => {
-    console.log(`Task with ${id} to remove!`)
     const filteredTask = list.filter((task) => task.id !== id);
     setList([...filteredTask]);
   }

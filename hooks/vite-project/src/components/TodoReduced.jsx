@@ -11,6 +11,16 @@ const Todo = () => {
     by: "",
   });
 
+
+    const handleTask = (e) => {
+    e.preventDefault();
+    dispatchTask({
+      type: "HANDLE_TASK",
+      field: e.target.name,
+      payload: e.target.value,
+    });
+  };
+
   
 
   return (

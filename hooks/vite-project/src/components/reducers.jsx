@@ -3,7 +3,7 @@ import uuid from "react-uuid";
 export const taskReducers = (state, action) => {
   switch (action.type) {
     case "ADD_TASK": {
-      const newTask = { ...action.payload, id: uuid(), isDone: "false" };
+      const newTask = { ...action.payload, id: uuid(), "isDone" : false };
       return [...state, newTask];
     }
 
