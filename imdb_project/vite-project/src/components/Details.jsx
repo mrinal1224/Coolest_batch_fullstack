@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import CastDetails from "./CastDetails";
 import CrewDetails from "./CrewDetails";
+import RatingsPopularity from "./RatingsPopularity";
 
 
 const Details = () => {
@@ -22,12 +23,16 @@ const Details = () => {
   }, [id]);
 
   console.log(movieDetail);
-  const { title, genres, backdrop_path, videos, credits } = movieDetail;
+  const { title, genres, backdrop_path, videos, credits , popularity , vote_average , revenue} = movieDetail;
 
   console.log(genres);
 
   return (
     <>
+
+    <div className="flex justify-center mb-4">
+       {movieDetail && <RatingsPopularity vote={vote_average} popularity={popularity} revenue={revenue}/>} 
+    </div>
       <div
         class="flex flex-row items-end justify-between mt-4 bg-black/10 bg-blend-multiply rounded-3xl h-[40rem] overflow-hidden bg-cover bg-center px-7 pt-4 pb-6 text-white"
         style={{
