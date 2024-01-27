@@ -12,7 +12,7 @@ const Todo = () => {
   });
 
 
-    const handleTask = (e) => {
+ const handleTask = (e) => {
     e.preventDefault();
     dispatchTask({
       type: "HANDLE_TASK",

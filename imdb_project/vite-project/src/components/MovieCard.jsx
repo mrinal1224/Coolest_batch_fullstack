@@ -1,6 +1,7 @@
 import React from "react";
 import { MovieContext } from "./MovieContext";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 function MovieCard({ movieObject }) {
 
@@ -36,10 +37,16 @@ function MovieCard({ movieObject }) {
         </div>
       )}
 
+
+
       <div className="text-white w-full text-center text-xl p-2 bg-gray-900/70 rounded-lg">
         {movieObject.title}
       </div>
+
+      <Link to={`/details/${movieObject.id}`} ><i class="fa-solid fa-circle-info text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"></i></Link>
+     
     </div>
+     
   );
 }
 

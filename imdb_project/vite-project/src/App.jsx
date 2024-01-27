@@ -3,6 +3,7 @@ import Banner from "./components/Banner";
 import Movies from "./components/Movies";
 import NavBar from "./components/NavBar";
 import WatchList from "./components/WatchList";
+import Details from "./components/Details";
 
 import { MovieContext } from "./components/MovieContext";
 
@@ -57,6 +58,11 @@ function App() {
             path="/watchlist"
             element={<WatchList />}
           />
+
+
+           <Route path="/details/:id" element={<Details />} />
+
+
         </Routes>
         </MovieContext.Provider>
       </BrowserRouter>

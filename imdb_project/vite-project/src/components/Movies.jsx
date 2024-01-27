@@ -42,11 +42,11 @@ function Movies() {
         {movies.map((movieObj) => {
           return (
             <MovieCard
-              
               name={movieObj.title}
               posterPath={movieObj.poster_path}
               movieObject={movieObj}
             />
+      
           );
         })}
       </div>
