@@ -31,7 +31,7 @@ const Details = () => {
     <>
 
     <div className="flex justify-center mb-4">
-       {movieDetail && <RatingsPopularity vote={vote_average} popularity={popularity} revenue={revenue}/>} 
+       {revenue && <RatingsPopularity vote={vote_average.toFixed(1)} popularity={popularity.toFixed(2)} revenue={revenue/1000000}/>} 
     </div>
       <div
         class="flex flex-row items-end justify-between mt-4 bg-black/10 bg-blend-multiply rounded-3xl h-[40rem] overflow-hidden bg-cover bg-center px-7 pt-4 pb-6 text-white"

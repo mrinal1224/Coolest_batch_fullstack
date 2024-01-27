@@ -7,7 +7,7 @@ function RatingsPopularity({vote , popularity , revenue}) {
         <div class="font-black flex flex-col">
           <span class="text-yellow-500 text-xl">IMDB SCORE</span>
           <span class="text-3xl ml-8 flex gap-x-1 items-center group-hover:text-yellow-600">
-            {vote.toFixed(1)} &#11088;
+            {vote} &#11088;
            
           </span>
         </div>
@@ -15,7 +15,7 @@ function RatingsPopularity({vote , popularity , revenue}) {
         <div class="font-black flex flex-col">
           <span class="text-red-500 text-xl">POPULARITY</span>
           <span class="text-3xl ml-1 flex gap-x-1 items-center group-hover:text-yellow-600">
-            {popularity.toFixed(2)} &#128293;
+            {popularity} &#128293;
            
           </span>
         </div>
@@ -23,7 +23,7 @@ function RatingsPopularity({vote , popularity , revenue}) {
         <div class="font-black flex flex-col">
           <span class="text-blue-500 text-xl">BOX OFFICE</span>
           <span class="text-3xl flex gap-x-1 items-center group-hover:text-yellow-600">
-            {(revenue/1000000).toFixed(2)} M &#128176;
+            {revenue} M &#128176;
            
           </span>
         </div>
