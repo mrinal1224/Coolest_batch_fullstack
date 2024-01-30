@@ -2,6 +2,7 @@ import { useState , lazy , Suspense } from "react";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import List from './components/List'
+import Ref from "./components/Ref";
 
 // const Home = lazy(()=> import('./pages/Home') )
 // const About = lazy(()=> import('./pages/About') )
@@ -37,7 +38,7 @@ function App() {
       </BrowserRouter>
       </Suspense> */}
 
-      <List/>
+      <Ref/>
     </div>
   );
 }
