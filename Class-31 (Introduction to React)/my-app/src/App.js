@@ -1,11 +1,12 @@
 import { useState , lazy , Suspense } from "react";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import List from './components/List'
 
-const Home = lazy(()=> import('./pages/Home') )
-const About = lazy(()=> import('./pages/About') )
-const Testimonials = lazy(()=> import('./pages/Testimonials') )
-const Products = lazy(()=> import('./pages/Products'))
+// const Home = lazy(()=> import('./pages/Home') )
+// const About = lazy(()=> import('./pages/About') )
+// const Testimonials = lazy(()=> import('./pages/Testimonials') )
+// const Products = lazy(()=> import('./pages/Products'))
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
       {/* <button onClick={getMovies}>Show Movies</button>
 
       <p>{movies.length > 0 ? JSON.stringify(movies) : ' '}</p> */}
-     <Suspense fallback={<h1>Loading...</h1>}>
+     {/* <Suspense fallback={<h1>Loading...</h1>}>
       <BrowserRouter>
         <Navbar/>
         <Routes>
@@ -34,7 +35,9 @@ function App() {
           <Route path="/products" element={<Products />} />
         </Routes>
       </BrowserRouter>
-      </Suspense>
+      </Suspense> */}
+
+      <List/>
     </div>
   );
 }
