@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen , fireEvent } from "@testing-library/react";
+import App from "./App";
 
 // test('renders learn react link', () => {
 //   render(<App />);
@@ -11,7 +11,7 @@ import App from './App';
 //   render(<App/>)
 //   const HelloElement = screen.getByText(/hello/i)
 //   const imageTitle = screen.getByTitle(/Scenery/i)
- 
+
 //   expect(HelloElement).toBeInTheDocument()
 //   expect(imageTitle).toBeInTheDocument()
 
@@ -23,24 +23,19 @@ import App from './App';
 //   expect(imageTitle2).toBeInTheDocument()
 // })
 
-
 // test for Input Field
 
-test('Check for Input box' , ()=>{
-  render(<App/>)
-   let checkInput = screen.getByRole('textbox')
-   let checkPlaceholder = screen.getByPlaceholderText('Enter UserName') 
-   expect(checkInput).toBeInTheDocument()
-   expect(checkPlaceholder).toBeInTheDocument()
-   expect(checkInput).toHaveAttribute('name' , 'userName')
-   expect(checkInput).toHaveAttribute('value' , "Adam123")
-   expect(checkInput).toHaveAttribute('id' , 'userID')
 
 
-})
-
-
-
-
-
-
+describe("UI Input field", () => {
+  test("Check for Input box", () => {
+    render(<App />);
+    let checkInput = screen.getByRole("textbox");
+    let checkPlaceholder = screen.getByPlaceholderText("Enter UserName");
+    expect(checkInput).toBeInTheDocument();
+    expect(checkPlaceholder).toBeInTheDocument();
+    expect(checkInput).toHaveAttribute("name", "userName");
+    expect(checkInput).toHaveAttribute("value", "Adam123");
+    expect(checkInput).toHaveAttribute("id", "userID");
+  });
+});
