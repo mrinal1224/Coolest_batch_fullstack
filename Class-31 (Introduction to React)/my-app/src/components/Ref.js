@@ -24,6 +24,7 @@ function Ref() {
     function changeColor(){
        refElement.current.style.color="red"
        refElement2.current.style.color='Blue'
+       refElement.current.style.backgroundColor='Yellow'
     }
 
 
