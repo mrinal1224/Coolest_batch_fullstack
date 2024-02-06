@@ -52,9 +52,7 @@ const path = require('path')
 
 //  console.log(doesExist)
 
-
-
- // We will do an Exercise
+// We will do an Exercise
 
 //  Copy a file from srcFolder to Destinatiom folder
 
