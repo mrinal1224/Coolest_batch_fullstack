@@ -1,9 +1,10 @@
 import './App.css'
+import { CalculateFactorial } from './components/CalculateFactorial'
 
 function App() {
   return (
     <>
-     <h1>Hello</h1>
+     <CalculateFactorial/>
     </>
   )
 }

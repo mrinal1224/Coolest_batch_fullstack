@@ -1,0 +1,5 @@
+Scalability: Node.js is designed to handle high traffic and large-scale applications, which makes it a good choice for PayPal's needs. With Node.js, PayPal is able to handle more requests per second with less infrastructure.
+Speed: Node.js is built on top of the V8 engine, which compiles JavaScript into machine code. This means that Node.js applications can execute code faster than Java applications.
+Real-time applications: Node.js is well-suited for real-time applications, such as chat, video conferencing, and gaming, which require low latency and fast data processing.
+Flexibility: Node.js is highly flexible and allows developers to build applications using a variety of programming paradigms, including event-driven, functional, and object-oriented programming.
+Developer productivity: Node.js has a large and active developer community, which means that there are many tools, libraries, and frameworks available to help developers build applications quickly and efficiently. Additionally, JavaScript is a popular language that many developers are already familiar with, which can reduce the learning curve.
