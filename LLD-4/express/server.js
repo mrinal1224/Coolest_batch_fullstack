@@ -1,4 +1,5 @@
 const express = require("express");
+const morgan = require('morgan')
 
 let courses = [
   { id: 1, name: "java" },
@@ -22,8 +23,17 @@ function middleWare2(req , res , next){
 }
 
 
+// I want to create a logger middleware
+
+// function logger(req , res , next){
+//    console.log(req.method, req.ip , req.hostname,  new Date())
+//    next()
+// }
+
+
 app.use(middleWare1)
 app.use(middleWare2)
+app.use(morgan())
 
 
 
