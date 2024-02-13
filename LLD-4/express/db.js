@@ -26,19 +26,57 @@ const courseSchema = new mongoose.Schema({
 
 // Model
 
-const CourseModel = mongoose.model("CourseModel", courseSchema);
+const CourseModel = mongoose.model("Course", courseSchema);
 
 // create a Document (Course entry)
 
 async function createCourse() {
   const course = new CourseModel({
-    name: "Java",
-    creator: "Mark",
+    name: "Python",
+    creator: "Steve",
     isPublished: true,
-    Ratings: 4.7,
+    Ratings: 4.5,
   });
 
   await course.save();
 }
 
-createCourse();
+// createCourse();
+
+// Update a course
+
+
+async function updateCourse(id){
+       let course = await CourseModel.findById(id)
+
+       if(!course) return 
+
+       course.name = "DBMS"
+       course.creator = "Mrinal"
+
+       await course.save()
+       
+}
+
+// updateCourse('65cba816d2f7bb1eda15c9fb')
+
+
+// Delete
+
+
+async function deleteEntry(id){
+     let courseDeleted = await CourseModel.findByIdAndDelete(id)
+
+     console.log(courseDeleted)
+
+}
+
+deleteEntry('65cba816d2f7bb1eda15c9fb')
+
+
+
+
+
+
+
+
