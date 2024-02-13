@@ -1,5 +1,5 @@
 const express = require("express");
-const morgan = require('morgan')
+const morgan = require("morgan");
 
 let courses = [
   { id: 1, name: "java" },
@@ -12,16 +12,15 @@ const app = express();
 app.use(express.json()); // build in middleware
 
 // Custom Middlewares
-function middleWare1(req , res , next){
-    console.log('This is Middleware 1')
-    next()
+function middleWare1(req, res, next) {
+  console.log("This is Middleware 1");
+  next();
 }
 
-function middleWare2(req , res , next){
-    console.log('This is Middleware 2')
-    next()
+function middleWare2(req, res, next) {
+  console.log("This is Middleware 2");
+  next();
 }
-
 
 // I want to create a logger middleware
 
@@ -30,20 +29,9 @@ function middleWare2(req , res , next){
 //    next()
 // }
 
-
-app.use(middleWare1)
-app.use(middleWare2)
-app.use(morgan())
-
-
-
-
-
-
-
-
-
-
+app.use(middleWare1);
+app.use(middleWare2);
+app.use(morgan());
 
 // get , post , put , delete , patch
 

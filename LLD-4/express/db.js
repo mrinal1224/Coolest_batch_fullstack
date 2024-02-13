@@ -1,0 +1,1 @@
+const DBurl = 'mongodb+srv://mrinal1224:zCViynGcS65huhOx@cluster0.kxyq8el.mongodb.net/?retryWrites=true&w=majority'
